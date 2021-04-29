@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <title>froggy café雛蛙咖啡</title>
+</head>
+<!-- https://www.youtube.com/watch?v=9X1graZtuPs -->
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <div class="text-logo">
+                            <h2>雛蛙</h2>
+                            <h2>咖啡</h2>
+                        </div>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-3">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#">首頁</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#coffee">典藏咖啡</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  私廚餐飲
+                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">茶品</a></li>
+                                    <li><a class="dropdown-item" href="#">輕食</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#">二手書店</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#">聯絡雛蛙</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="bg-info text-white" id="intro">
+        <img src="img/banner.jpg" alt="">
+        <div class="container-fluid p-5">
+            <div class="row">
+                <div class="col-md-12 px-0">
+                    <h1>雛蛙咖啡，反芻純真時光</h1>
+                    <p class="lead">讓你的味蕾、心靈芳香馥郁。</p>
+                    <a href="#" class="btn">淺嚐流光</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="pt-5" id="desc">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3 class="text-center mb-4">雛蛙，是咖啡廳也是書店。</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="circle-picture-frame">
+                                <img src="img/circle-face.jpg" class="h-100" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-8 text-left text-muted p-4">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aperiam minima harum repudiandae veniam nulla odit dolor, sunt voluptates nam quae expedita, veritatis culpa aut velit modi repellendus unde eveniet?</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aperiam minima harum repudiandae veniam nulla odit dolor, sunt voluptates nam quae expedita, veritatis culpa aut velit modi repellendus unde eveniet?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="coffee">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center mb-4">典藏咖啡</h3>
+                </div>
+                <div id="carouselExampleInterval" class="carousel slide px-5" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <div>
+                                <img src="img/coffee (3).jpg" class="w-100" alt="">
+                                <span>手沖咖啡</span>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <div>
+                                <img src="img/coffee (2).jpg" class="w-100" alt="">
+                                <span>精品咖啡</span>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div>
+                                <img src="img/coffee (1).jpg" class="w-100" alt="">
+                                <span>濾掛選購</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="coffee">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h3 class="text-center m-4">書本借閱/選購</h3>
+                    <article>
+                        <p>我們同時經營咖啡和文學。</p>
+                        <p>我們擁有大量的書區供你閱覽，二手書經過我們精心挑選和排列，充滿各式文學經典。</p>
+                        <p>此外，若有喜歡的書可以直接向我們購買；也歡迎提供你的二手書給我們收購。</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container" id="store-map">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="map-responsive">
+                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container-fluid p-4 text-black-50 text-center bg-light">
+            <small>Copyright © froggy café 著作權所有. All rights reserved.</small>
+        </div>
+    </footer>
+</body>
+
+</html>
