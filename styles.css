@@ -14,7 +14,7 @@
 @media screen and (max-width:767.9px) {
      :root {
         --bgImgHeight: 100vh;
-        --carouselFontSize: 5rem;
+        --carouselFontSize: 3rem;
     }
 }
 
@@ -75,10 +75,12 @@ header h2 {
 }
 
 #intro .btn:hover {
-    border: 1px solid rgba(255, 255, 255, 0);
-    background: radial-gradient(var(--light-brown) 20%, rgba(255, 255, 255, 0.25));
-    color: var(--dark-brown);
-    transition: .4s;
+    box-shadow: 0 0 5px #fff;
+    transition: .3s;
+}
+
+#intro .btn:visited {
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
 }
 
 #desc h3 {
