@@ -72,11 +72,20 @@ header h2 {
     font-weight: 300;
     padding: 9px 16px;
     border-radius: 50vh;
+    transition: .3s;
+}
+
+#intro .btn.btn-important {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #3f3f3f;
+    margin-left: 15px;
 }
 
 #intro .btn:hover {
     box-shadow: 0 0 5px #fff;
     transition: .3s;
+    font-size: 1.1rem;
+    padding: calc(9px - 0.1rem) calc(16px - 0.2rem);
 }
 
 #intro .btn:visited {
