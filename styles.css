@@ -16,6 +16,9 @@
         --bgImgHeight: 100vh;
         --carouselFontSize: 3rem;
     }
+    .vertical-nav {
+        display: none;
+    }
 }
 
 h1,

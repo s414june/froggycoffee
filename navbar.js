@@ -19,10 +19,7 @@ function headerContain(headNavbar) {
                                 <a class="nav-link" href="index.html">首頁</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="#coffee">典藏咖啡</a>
-                            </li>
-                            <li class="nav-item mx-2">
-                                <a class="nav-link" href="#book">二手書店</a>
+                                <a class="nav-link" href="index.html#coffee">典藏咖啡</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,10 +29,11 @@ function headerContain(headNavbar) {
                                     <li><a class="dropdown-item" href="product.html">所有商品</a></li>
                                     <li><a class="dropdown-item" href="product.html">濾掛式咖啡</a></li>
                                     <li><a class="dropdown-item" href="product.html">精選咖啡豆</a></li>
+                                    <li><a class="dropdown-item" href="product.html">二手書籍</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link" href="#store-map">聯絡雛蛙</a>
+                                <a class="nav-link" href="index.html#store-map">聯絡雛蛙</a>
                             </li>
                         </ul>
                     </div>
