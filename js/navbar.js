@@ -29,7 +29,7 @@ function headerContain(headNavbar) {
                                     <li><a class="dropdown-item" href="product.html">所有商品</a></li>
                                     <li><a class="dropdown-item" href="product.html">濾掛式咖啡</a></li>
                                     <li><a class="dropdown-item" href="product.html">精選咖啡豆</a></li>
-                                    <li><a class="dropdown-item" href="product.html">二手書籍</a></li>
+                                    <li><a class="dropdown-item" href="product.html">二手書本</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item mx-2">
@@ -45,7 +45,7 @@ function headerContain(headNavbar) {
 
 function footerContain(footerDiv) {
     footerDiv.innerHTML = `
-    <div class="container-fluid p-4 text-black-50 text-center bg-light">
+    <div class="container-fluid p-4 text-black-50 text-center bg-light align-bottom">
         <small>Copyright © froggy café 著作權所有. All rights reserved.</small>
     </div>
     `

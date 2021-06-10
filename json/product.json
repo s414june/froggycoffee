@@ -1,0 +1,40 @@
+{
+    "products": [{
+            "filetype": "dripbag",
+            "title": "【湛盧】濾掛式咖啡-行家首選綜合 /4入",
+            "img": "product-dripbag (1).jpg",
+            "price": "500"
+        },
+        {
+            "filetype": "dripbag",
+            "title": "【湛盧】濾掛式咖啡-莊園單品綜合 /27入盒裝",
+            "img": "product-dripbag (2).jpg",
+            "price": "699"
+        },
+        {
+            "filetype": "dripbag",
+            "title": "【cama】濾掛式咖啡-巧克力王子 /8入盒裝",
+            "img": "product-dripbag (3).jpg",
+            "price": "320"
+        },
+        {
+            "filetype": "dripbag",
+            "title": "【cama】濾掛式咖啡-義式 /8入盒裝",
+            "img": "product-dripbag (4).jpg",
+            "price": "240"
+        },
+        {
+            "filetype": "dripbag",
+            "title": "【黑沃】動物地球村-瀕危動物濾掛禮盒 /8入盒裝",
+            "img": "product-dripbag (5).jpg",
+            "price": "480"
+        },
+        {
+            "filetype": "dripbag",
+            "title": "【黑沃】狂野非洲濾掛咖啡禮盒 /8入盒裝",
+            "img": "product-dripbag (6).jpg",
+            "price": "500"
+        }
+    ]
+
+}

@@ -47,6 +47,10 @@ header h2 {
     line-height: 1.6rem;
 }
 
+header .dropdown-item:active {
+    background-color: #0dcaf0;
+}
+
 #intro {
     position: relative;
     height: 70vh;
@@ -79,9 +83,10 @@ header h2 {
 }
 
 #intro .btn.btn-important {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255);
     color: #3f3f3f;
     margin-left: 15px;
+    opacity: 0.9;
 }
 
 #intro .btn:hover {
@@ -91,8 +96,13 @@ header h2 {
     padding: calc(9px - 0.1rem) calc(16px - 0.2rem);
 }
 
+#intro .btn.btn-important:hover {
+    opacity: 1
+}
+
 #intro .btn:visited {
     box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    font-size: 1rem;
 }
 
 #desc h3 {
