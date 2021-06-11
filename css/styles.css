@@ -9,6 +9,10 @@
         --bgImgWidth: 100vw;
         --carouselFontSize: 9rem;
     }
+    footer .contact-info {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width:767.9px) {
@@ -40,6 +44,16 @@ ul,
 li,
 small {
     font-family: 'Noto Sans TC', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
 }
 
 header h2 {
@@ -146,4 +160,14 @@ header .dropdown-item:active {
     width: 100%;
     height: 450px
     /* frameborder="0" allowfullscreen */
+}
+
+footer .quote-info {
+    position: absolute;
+    font-size: .9rem;
+    right: 10px;
+}
+
+footer .quote-info svg {
+    width: .9rem;
 }

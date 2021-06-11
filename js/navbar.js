@@ -23,13 +23,13 @@ function headerContain(headNavbar) {
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  線上選購
-                </a>
+                                    線上選購
+                                </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="product.html">所有商品</a></li>
-                                    <li><a class="dropdown-item" href="product.html">濾掛式咖啡</a></li>
-                                    <li><a class="dropdown-item" href="product.html">精選咖啡豆</a></li>
-                                    <li><a class="dropdown-item" href="product.html">二手書本</a></li>
+                                    <li><a class="dropdown-item product-filter" id="allproduct">所有商品</a></li>
+                                    <li><a class="dropdown-item product-filter" id="dripbag">濾掛式咖啡</a></li>
+                                    <li><a class="dropdown-item product-filter" id="bean">精選咖啡豆</a></li>
+                                    <li><a class="dropdown-item product-filter" id="allproduct">二手書本</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item mx-2">
@@ -45,8 +45,30 @@ function headerContain(headNavbar) {
 
 function footerContain(footerDiv) {
     footerDiv.innerHTML = `
-    <div class="container-fluid p-4 text-black-50 text-center bg-light align-bottom">
-        <small>Copyright © froggy café 著作權所有. All rights reserved.</small>
+    <div class="container-fluid pt-4 text-black-50 text-center bg-light align-bottom">
+        <div class="row">
+        <div class="col-12 contact-info">
+                <p class="px-4">
+                    <span class="px-2"><i data-feather="mail"></i></span>s414june@gmail.com
+                </p>
+                <p class="px-4">
+                    <span class="px-2"><i data-feather="phone"></i></span>0900-000-000
+                </p>
+                <p class="px-4">
+                    <span class="px-2"><i data-feather="map-pin"></i></span>228新北市貢寮區福連里
+                </p>
+            </div>
+        </div>
+        <div class="row pb-4">
+            <div class="col-12">
+                <small>Copyright © froggy café 著作權所有. All rights reserved.</small>
+            </div>
+            <div class="col-12">
+            <a href="#" class="text-black-50 quote-info" data-bs-toggle="tooltip" title="您將會看到著作權引用相關資訊，以及此網站的製作來由" style="text-decoration:none;">
+                <small><span class="px-1"><i data-feather="info"></i></span>更多資訊
+                </small>
+            </a>
+        </div>
     </div>
     `
 }

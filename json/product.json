@@ -1,39 +1,59 @@
 {
     "products": [{
             "filetype": "dripbag",
+            "typename": "濾掛式咖啡",
             "title": "【湛盧】濾掛式咖啡-行家首選綜合 /4入",
             "img": "product-dripbag (1).jpg",
             "price": "500"
         },
         {
             "filetype": "dripbag",
+            "typename": "濾掛式咖啡",
             "title": "【湛盧】濾掛式咖啡-莊園單品綜合 /27入盒裝",
             "img": "product-dripbag (2).jpg",
             "price": "699"
         },
         {
             "filetype": "dripbag",
+            "typename": "濾掛式咖啡",
             "title": "【cama】濾掛式咖啡-巧克力王子 /8入盒裝",
             "img": "product-dripbag (3).jpg",
             "price": "320"
         },
         {
             "filetype": "dripbag",
+            "typename": "濾掛式咖啡",
             "title": "【cama】濾掛式咖啡-義式 /8入盒裝",
             "img": "product-dripbag (4).jpg",
             "price": "240"
         },
         {
             "filetype": "dripbag",
+            "typename": "濾掛式咖啡",
             "title": "【黑沃】動物地球村-瀕危動物濾掛禮盒 /8入盒裝",
             "img": "product-dripbag (5).jpg",
             "price": "480"
         },
         {
             "filetype": "dripbag",
+            "typename": "濾掛式咖啡",
             "title": "【黑沃】狂野非洲濾掛咖啡禮盒 /8入盒裝",
             "img": "product-dripbag (6).jpg",
             "price": "500"
+        },
+        {
+            "filetype": "bean",
+            "typename": "精選咖啡豆",
+            "title": "【cama】哥倫翡玉精品咖啡豆 /227g",
+            "img": "product-bean (1).jpg",
+            "price": "550"
+        },
+        {
+            "filetype": "bean",
+            "typename": "精選咖啡豆",
+            "title": "【cama】百蜜花園咖啡豆 /227g",
+            "img": "product-bean (2).jpg",
+            "price": "420"
         }
     ]
 
