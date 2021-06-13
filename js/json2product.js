@@ -23,10 +23,9 @@ function showProductFn(obj) {
 }
 
 function filterAndLoader(type) {
-    sessionStorage.setItem('productType', type)
-
     let isProductPath = location.pathname.search(/product.html/)
     if (isProductPath < 0) {
+        sessionStorage.setItem('productType', type)
         location.assign("product.html")
     }
 
@@ -45,10 +44,11 @@ function filterAndLoader(type) {
     })
 }
 
-function initProductPage(type) {
-    if (type == "") {
+function initProductPage() {
+    let typeSession = sessionStorage.getItem('productType')
+    if (typeSession == undefined) {
         sessionStorage.setItem('productType', 'all')
     }
-    type = sessionStorage.getItem('productType')
-    filterAndLoader(type)
+    typeSession = sessionStorage.getItem('productType')
+    filterAndLoader(typeSession)
 }
