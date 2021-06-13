@@ -24,7 +24,7 @@ function showProductFn(obj) {
 
 function filterAndLoader(type) {
     if (location.pathname != "/product.html") {
-        sessionStorage.setItem('typeFromHome', type)
+        // sessionStorage.setItem('typeFromHome', type)
         location.assign("product.html")
     }
     let filterObj = []
@@ -40,6 +40,5 @@ function filterAndLoader(type) {
 
 function initProductPage() {
     let typeFromHome = sessionStorage.getItem('typeFromHome')
-    console.log(typeFromHome)
     filterAndLoader(typeFromHome)
 }
