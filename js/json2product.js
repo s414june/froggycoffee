@@ -22,7 +22,7 @@ function showProductFn(obj) {
     })
 }
 
-function filter(type) {
+function filterAndLoader(type) {
     //刪除cookie
     // let date = new Date(Date.now() - 1);
     // date = date.toUTCString();
@@ -30,7 +30,7 @@ function filter(type) {
     // expires = +date;
     document.cookie = type
     if (location.pathname != "/product.html") {
-        location.assign("/product.html")
+        location.assign(".././product.html")
     }
     let filterObj = []
     getAjax("../json/product.json", (xhr) => {
@@ -44,5 +44,6 @@ function filter(type) {
 }
 
 function initProductPage() {
-    filter(document.cookie)
+    console.log(document.cookie)
+    filterAndLoader(document.cookie)
 }

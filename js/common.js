@@ -26,10 +26,10 @@ function headerContain(headNavbar) {
                                     線上選購
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" id="allproduct" onclick="filter('all')">所有商品</a></li>
-                                    <li><a class="dropdown-item" id="dripbag" onclick="filter('dripbag')">濾掛式咖啡</a></li>
-                                    <li><a class="dropdown-item" id="bean" onclick="filter('bean')">精選咖啡豆</a></li>
-                                    <li><a class="dropdown-item" id="allproduct" onclick="filter('all')">二手書本</a></li>
+                                    <li><a class="dropdown-item" id="allproduct" onclick="filterAndLoader('all')">所有商品</a></li>
+                                    <li><a class="dropdown-item" id="dripbag" onclick="filterAndLoader('dripbag')">濾掛式咖啡</a></li>
+                                    <li><a class="dropdown-item" id="bean" onclick="filterAndLoader('bean')">精選咖啡豆</a></li>
+                                    <li><a class="dropdown-item" id="allproduct" onclick="filterAndLoader('all')">二手書本</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item mx-2">
