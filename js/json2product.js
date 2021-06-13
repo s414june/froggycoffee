@@ -23,14 +23,9 @@ function showProductFn(obj) {
 }
 
 function filterAndLoader(type) {
-    //刪除cookie
-    // let date = new Date(Date.now() - 1);
-    // date = date.toUTCString();
-    // document.cookie = type;
-    // expires = +date;
-    document.cookie = type
     if (location.pathname != "/product.html") {
-        location.assign(".././product.html")
+        sessionStorage.setItem('typeFromHome', type)
+        location.assign("product.html")
     }
     let filterObj = []
     getAjax("../json/product.json", (xhr) => {
@@ -44,6 +39,7 @@ function filterAndLoader(type) {
 }
 
 function initProductPage() {
-    console.log(document.cookie)
-    filterAndLoader(document.cookie)
+    let typeFromHome = sessionStorage.getItem('typeFromHome')
+    console.log(typeFromHome)
+    filterAndLoader(typeFromHome)
 }

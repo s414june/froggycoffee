@@ -20,7 +20,7 @@
         --bgImgHeight: 100vh;
         --carouselFontSize: 3rem;
     }
-    .vertical-nav {
+    #product .vertical-nav {
         display: none;
     }
 }
@@ -170,4 +170,8 @@ footer .quote-info {
 
 footer .quote-info svg {
     width: .9rem;
+}
+
+#product .vertical-nav li {
+    cursor: pointer;
 }
