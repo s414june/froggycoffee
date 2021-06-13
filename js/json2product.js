@@ -24,13 +24,16 @@ function showProductFn(obj) {
 
 function filterAndLoader(type) {
     sessionStorage.setItem('productType', type)
+
     let isProductPath = location.pathname.search(/product.html/)
-        // console.log(isProductPath)
     if (isProductPath < 0) {
         location.assign("product.html")
     }
-    let filterObj = []
-    getAjax("../json/product.json", (xhr) => {
+
+    let rootPath = location.pathname.replace(/product.html/, "")
+    console.log(rootPath)
+    getAjax((rootPath + "json/product.json"), (xhr) => {
+        let filterObj = []
         let json2obj = JSON.parse(xhr.response)
         json2obj.products.forEach(item => {
             if (item.filetype == type) filterObj.push(item)
