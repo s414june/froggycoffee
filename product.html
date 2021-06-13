@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/navbar.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/getAjaxjs.js"></script>
     <script src="js/json2product.js"></script>
     <title>froggy café雛蛙咖啡-線上選購</title>
@@ -27,27 +27,27 @@
                     <div class="col-3 vertical-nav">
                         <ul class="nav flex-column py-4 px-lg-4 px-2">
                             <li class="nav-item p-1">
-                                <a class="nav-link active text-body product-filter" id="allproduct">所有商品</a>
+                                <a class="nav-link active text-body" onclick="filter('all')">所有商品</a>
                             </li>
                             <li class="nav-item p-1">
-                                <a class="nav-link text-secondary product-filter" id="dripbag">濾掛式咖啡</a>
+                                <a class="nav-link text-secondary" onclick="filter('dripbag')">濾掛式咖啡</a>
                             </li>
                             <li class="nav-item p-1">
-                                <a class="nav-link text-secondary product-filter" id="bean">精選咖啡豆</a>
+                                <a class="nav-link text-secondary" onclick="filter('bean')">精選咖啡豆</a>
                             </li>
                             <li class="nav-item p-1">
-                                <a class="nav-link text-secondary product-filter" id="allproduct">二手書本</a>
+                                <a class="nav-link text-secondary" onclick="filter('all')">二手書本</a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-9 col-12">
-                        <div class="row  product-container">
+                        <div class="row">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-7 p-4">
+                                    <div class="col-lg-7 p-4">
                                         <p>共 <span class="product-quantity"></span> 項商品</p>
                                     </div>
-                                    <div class="col-md-5 px-4">
+                                    <div class="col-lg-5 px-4">
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="輸入商品關鍵字" aria-label="Recipient's username" aria-describedby="button-addon2">
                                             <div class="input-group-append">
@@ -56,6 +56,10 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row" id="product-container">
+                            <div class="container-fluid">
                             </div>
                         </div>
                     </div>
@@ -75,14 +79,8 @@
     footerContain(footerDiv)
 </script>
 <script>
-    let productContainer = document.querySelector('.product-container')
+    let productContainer = document.querySelector('#product-container')
     let productQuantity = document.querySelector('.product-quantity')
-    getAjax("json/product.json", (xhr) => {
-        let json2obj = JSON.parse(xhr.response)
-            // showProductFn(json2obj.products)
-        let productFilters = document.querySelectorAll('.product-filter')
-        productFilter(productFilters, json2obj.products)
-    })
 </script>
 <script>
     feather.replace()
@@ -91,6 +89,9 @@
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
+</script>
+<script>
+    if (document.referrer != location.href) initProductPage()
 </script>
 
 </html>

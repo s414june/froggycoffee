@@ -7,6 +7,4 @@ function getAjax(Httpurl, callbackFn) {
             callbackFn(xhr)
         }
     }
-
-
 }

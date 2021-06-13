@@ -1,5 +1,5 @@
 function showProductFn(obj) {
-    productContainer.innerHTML = ""
+    if (obj != null) productContainer.innerHTML = ""
     obj.forEach(item => {
         let productsAll = document.createElement('div')
         productsAll.className = 'col-lg-4 col-md-6 my-4'
@@ -18,28 +18,31 @@ function showProductFn(obj) {
             </div>
             `
         productContainer.appendChild(productsAll)
+        productQuantity.innerHTML = String(obj.length)
     })
 }
 
-function productFilter(productFilters, obj) {
-    let filterproducts = []
-    productFilters.forEach(typefilter => {
-        typefilter.onclick = function() {
-            let typeId = typefilter.id
-            let productUrl = location.origin + "/product.html"
-            filterproducts = []
-            if (location.href != productUrl) {
-                window.location.replace("product.html")
-            }
-            for (let i = 0; i < obj.length; i++) {
-                if (obj[i].filetype == typeId) {
-                    filterproducts.push(obj[i])
-                }
-                if (typeId == "allproduct") {
-                    filterproducts.push(obj[i])
-                }
-            }
-            showProductFn(filterproducts)
-        }
+function filter(type) {
+    //刪除cookie
+    // let date = new Date(Date.now() - 1);
+    // date = date.toUTCString();
+    // document.cookie = type;
+    // expires = +date;
+    document.cookie = type
+    if (location.pathname != "/product.html") {
+        location.assign("/product.html")
+    }
+    let filterObj = []
+    getAjax("../json/product.json", (xhr) => {
+        let json2obj = JSON.parse(xhr.response)
+        json2obj.products.forEach(item => {
+            if (item.filetype == type) filterObj.push(item)
+        })
+        if (type == "all") Array.prototype.push.apply(filterObj, json2obj.products)
+        showProductFn(filterObj)
     })
+}
+
+function initProductPage() {
+    filter(document.cookie)
 }

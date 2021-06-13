@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/navbar.js"></script>
+    <script src="js/common.js"></script>
     <script src="js/getAjaxjs.js"></script>
     <script src="js/json2product.js"></script>
     <title>froggy café雛蛙咖啡</title>
@@ -131,11 +131,6 @@
 </script>
 <script>
     let productContainer = document.querySelector('.product-container')
-    getAjax("json/product.json", (xhr) => {
-        let json2obj = JSON.parse(xhr.response)
-        let productFilters = document.querySelectorAll('.product-filter')
-        productFilter(productFilters, json2obj.products)
-    })
 </script>
 <script>
     feather.replace()
