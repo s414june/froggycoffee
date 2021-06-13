@@ -23,8 +23,9 @@ function showProductFn(obj) {
 }
 
 function filterAndLoader(type) {
+    if (type == undefined) return
     if (location.pathname != "/product.html") {
-        // sessionStorage.setItem('typeFromHome', type)
+        sessionStorage.setItem('productType', type)
         location.assign("product.html")
     }
     let filterObj = []
@@ -34,14 +35,18 @@ function filterAndLoader(type) {
             if (item.filetype == type) filterObj.push(item)
         })
         if (type == "all") {
-            //     Array.prototype.push.apply(filterObj, json2obj.products)
             filterObj = json2obj.products
         }
         showProductFn(filterObj)
     })
 }
 
-function initProductPage() {
-    let typeFromHome = sessionStorage.getItem('typeFromHome')
-    filterAndLoader(typeFromHome)
+function initProductPage(type) {
+    if (type == undefined) {
+        sessionStorage.setItem('productType', 'all')
+        type = sessionStorage.getItem('productType')
+    } else {
+        type = sessionStorage.getItem('productType')
+    }
+    filterAndLoader(type)
 }
