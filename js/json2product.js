@@ -24,7 +24,9 @@ function showProductFn(obj) {
 
 function filterAndLoader(type) {
     sessionStorage.setItem('productType', type)
-    if (location.pathname != "/product.html") {
+    let isProductPath = location.pathname.search(/product.html/)
+        // console.log(isProductPath)
+    if (isProductPath < 0) {
         location.assign("product.html")
     }
     let filterObj = []
