@@ -40,7 +40,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-9 col-12">
+                    <div class="col-lg-9 col-12">
                         <div class="row">
                             <div class="container-fluid">
                                 <div class="row">
@@ -79,17 +79,6 @@
     footerContain(footerDiv)
     let productType = ""
     initProductPage(productType)
-
-    // getAjax("json/product.json", (xhr) => {
-    //     let json2obj = JSON.parse(xhr.response)
-    //     json2obj.products.forEach(item => {
-    //         if (item.filetype == type) filterObj.push(item)
-    //     })
-    //     if (type == "all") {
-    //         filterObj = json2obj.products
-    //     }
-    //     showProductFn(filterObj)
-    // })
 </script>
 <script>
     let productContainer = document.querySelector('#product-container')
@@ -102,29 +91,6 @@
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
-</script>
-
-<script>
-    // function filterAndLoader(type) {
-    //     sessionStorage.setItem('productType', type)
-    //     let isProductPath = location.pathname.search(/product.html/)
-    //         // console.log(isProductPath)
-    //     if (isProductPath < 0) {
-    //         location.assign("product.html")
-    //     }
-
-
-    //     getAjax(("json/product.json"), (xhr) => {
-    //         let json2obj = JSON.parse(xhr.response)
-    //         json2obj.products.forEach(item => {
-    //             if (item.filetype == type) filterObj.push(item)
-    //         })
-    //         if (type == "all") {
-    //             filterObj = json2obj.products
-    //         }
-    //         showProductFn(filterObj)
-    //     })
-    // }
 </script>
 
 </html>

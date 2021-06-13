@@ -15,13 +15,16 @@
     }
 }
 
+@media screen and (max-width:991.9px) {
+    #product .vertical-nav {
+        display: none;
+    }
+}
+
 @media screen and (max-width:767.9px) {
      :root {
         --bgImgHeight: 100vh;
         --carouselFontSize: 3rem;
-    }
-    #product .vertical-nav {
-        display: none;
     }
 }
 
@@ -84,7 +87,7 @@ header .dropdown-item:active {
 }
 
 #intro h1 {
-    font-size: 3.5rem;
+    font-size: calc(2.5rem + 2vw);
 }
 
 #intro .btn {

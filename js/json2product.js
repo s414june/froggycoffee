@@ -46,7 +46,7 @@ function filterAndLoader(type) {
 }
 
 function initProductPage(type) {
-    if (type == undefined) {
+    if (type == "") {
         sessionStorage.setItem('productType', 'all')
     }
     type = sessionStorage.getItem('productType')
