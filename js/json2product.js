@@ -23,9 +23,8 @@ function showProductFn(obj) {
 }
 
 function filterAndLoader(type) {
-    if (type == undefined) return
+    sessionStorage.setItem('productType', type)
     if (location.pathname != "/product.html") {
-        sessionStorage.setItem('productType', type)
         location.assign("product.html")
     }
     let filterObj = []
