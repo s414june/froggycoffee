@@ -33,7 +33,10 @@ function filterAndLoader(type) {
         json2obj.products.forEach(item => {
             if (item.filetype == type) filterObj.push(item)
         })
-        if (type == "all") Array.prototype.push.apply(filterObj, json2obj.products)
+        if (type == "all") {
+            //     Array.prototype.push.apply(filterObj, json2obj.products)
+            filterObj = json2obj.products
+        }
         showProductFn(filterObj)
     })
 }
