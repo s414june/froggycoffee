@@ -22,22 +22,28 @@ function showProductFn(obj) {
     })
 }
 
-function filterAndLoader(type) {
+function filterAndLoader(filtername) {
     let isProductPath = location.pathname.search(/product.html/)
     if (isProductPath < 0) {
-        sessionStorage.setItem('productType', type)
+        sessionStorage.setItem('productType', filtername)
         location.assign("product.html")
     }
 
+
     let rootPath = location.pathname.replace(/product.html/, "")
-    console.log(rootPath)
     getAjax((rootPath + "json/product.json"), (xhr) => {
         let filterObj = []
         let json2obj = JSON.parse(xhr.response)
         json2obj.products.forEach(item => {
-            if (item.filetype == type) filterObj.push(item)
+            if (item.filetype == filtername) filterObj.push(item)
+
+            if (searchInput.value != "") {
+                let regName = new RegExp(filtername, 'i')
+                let searchReg = item.title.search(regName)
+                if (searchReg >= 0) filterObj.push(item)
+            }
         })
-        if (type == "all") {
+        if (filtername == "all") {
             filterObj = json2obj.products
         }
         showProductFn(filterObj)
