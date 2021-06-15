@@ -11,9 +11,11 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/init.js"></script>
     <script src="js/common.js"></script>
     <script src="js/getAjaxjs.js"></script>
-    <script src="js/json2product.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/cart.js"></script>
     <title>froggy café雛蛙咖啡-線上選購</title>
 </head>
 
@@ -27,16 +29,16 @@
                     <div class="col-3 vertical-nav">
                         <ul class="nav flex-column py-4 px-lg-4 px-2">
                             <li class="nav-item p-1">
-                                <a class="nav-link active text-body" onclick="filterAndLoader('all')">所有商品</a>
+                                <a class="nav-link active text-body all-product" onclick="filterAndLoader('all')">所有商品</a>
                             </li>
                             <li class="nav-item p-1">
-                                <a class="nav-link text-secondary" onclick="filterAndLoader('dripbag')">濾掛式咖啡</a>
+                                <a class="nav-link text-secondary dripbag-product" onclick="filterAndLoader('dripbag')">濾掛式咖啡</a>
                             </li>
                             <li class="nav-item p-1">
-                                <a class="nav-link text-secondary" onclick="filterAndLoader('bean')">精選咖啡豆</a>
+                                <a class="nav-link text-secondary bean-product" onclick="filterAndLoader('bean')">精選咖啡豆</a>
                             </li>
                             <li class="nav-item p-1">
-                                <a class="nav-link text-secondary" onclick="filterAndLoader('all')">二手書本</a>
+                                <a class="nav-link text-secondary book-product" onclick="filterAndLoader('book')">二手書本</a>
                             </li>
                         </ul>
                     </div>
@@ -73,32 +75,18 @@
 </body>
 
 <script>
-    let headNavbar = document.querySelector('#head-navbar')
-    let footerDiv = document.querySelector('footer')
-    headerContain(headNavbar)
-    footerContain(footerDiv)
-    initProductPage()
-</script>
-<script>
+    init()
+
     let productContainer = document.querySelector('#product-container')
     let productQuantity = document.querySelector('.product-quantity')
-</script>
-<script>
-    feather.replace()
-
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
-</script>
-<script>
     let searchInput = document.querySelector('.form-control')
+    let typeSession = sessionStorage.getItem('productType')
+    initProductPage(typeSession)
+    searchFn()
+</script>
 
-    searchInput.addEventListener('keyup', function(e) {
-        if (e.key == "Enter") {
-            filterAndLoader(searchInput.value)
-        }
-    })
+<script>
+    // console.log(cartQuantity.innerText)
 </script>
 
 </html>

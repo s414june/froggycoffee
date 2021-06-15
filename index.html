@@ -11,134 +11,124 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/init.js"></script>
     <script src="js/common.js"></script>
     <script src="js/getAjaxjs.js"></script>
-    <script src="js/json2product.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/cart.js"></script>
     <title>froggy café雛蛙咖啡</title>
 </head>
 
 <body>
     <header id='head-navbar'>
     </header>
-    <section class="text-white" id="intro">
-        <img src="img/banner.jpg" alt="">
-        <div class="container-fluid p-5">
-            <div class="row">
-                <div class="col-md-12 px-0">
-                    <h1>雛蛙咖啡，反芻純真時光</h1>
-                    <p class="lead pb-2">讓你的味蕾、心靈芳香馥郁。</p>
-                    <a href="#desc" class="btn">淺嚐流光</a>
-                    <a href="product.html" class="btn btn-important" onclick="filterAndLoader('all')">暢飲淳芳</a>
+    <main>
+        <section class="text-white" id="intro">
+            <img src="img/banner.jpg" alt="">
+            <div class="container-fluid p-5">
+                <div class="row">
+                    <div class="col-md-12 px-0">
+                        <h1>雛蛙咖啡，反芻純真時光</h1>
+                        <p class="lead pb-2">讓你的味蕾、心靈芳香馥郁。</p>
+                        <a href="#desc" class="btn">淺嚐流光</a>
+                        <a href="product.html" class="btn btn-important" onclick="filterAndLoader('all')">暢飲淳芳</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="pt-5" id="desc">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <h3 class="text-center mb-4">雛蛙，是咖啡廳也是書店。</h3>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="circle-picture-frame">
-                                <img src="img/circle-face.jpg" class="h-100" alt="">
+        </section>
+        <section class="pt-5" id="desc">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <h3 class="text-center mb-4">雛蛙，是咖啡廳也是書店。</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="circle-picture-frame">
+                                    <img src="img/circle-face.jpg" class="h-100" alt="">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-8 text-left text-muted p-4">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aperiam minima harum repudiandae veniam nulla odit dolor, sunt voluptates nam quae expedita, veritatis culpa aut velit modi repellendus unde eveniet?</p>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aperiam minima harum repudiandae veniam nulla odit dolor, sunt voluptates nam quae expedita, veritatis culpa aut velit modi repellendus unde eveniet?</p>
+                            <div class="col-md-8 text-left text-muted p-4">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aperiam minima harum repudiandae veniam nulla odit dolor, sunt voluptates nam quae expedita, veritatis culpa aut velit modi repellendus unde eveniet?</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae aperiam minima harum repudiandae veniam nulla odit dolor, sunt voluptates nam quae expedita, veritatis culpa aut velit modi repellendus unde eveniet?</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section id="coffee">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 class="text-center mb-4">典藏咖啡</h3>
-                </div>
-                <div id="carouselInside" class="carousel slide px-5" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-interval="200">
-                            <div>
-                                <img src="img/coffee (3).jpg" alt="">
-                                <span>手沖咖啡</span>
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-interval="200">
-                            <div>
-                                <img src="img/coffee (2).jpg" alt="">
-                                <span>精品咖啡</span>
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-interval="200">
-                            <div>
-                                <img src="img/coffee (1).jpg" alt="">
-                                <span>濾掛選購</span>
-                            </div>
-                        </div>
+        </section>
+        <section id="coffee">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="text-center mb-4">典藏咖啡</h3>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselInside" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselInside" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="book">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <h3 class="text-center m-4">書本借閱/選購</h3>
-                    <article>
-                        <p>我們同時經營咖啡和文學。</p>
-                        <p>我們擁有大量的書區供你閱覽，二手書經過我們精心挑選和排列，充滿各式文學經典。</p>
-                        <p>此外，若有喜歡的書可以直接向我們購買；也歡迎提供你的二手書給我們收購。</p>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container" id="store-map">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h3 class="text-center m-4">聯絡雛蛙</h3>
-                    <div id="map-responsive">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.952060337449!2d121.98943571495788!3d25.00174488398754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDAwJzA2LjMiTiAxMjHCsDU5JzI5LjkiRQ!5e0!3m2!1szh-TW!2stw!4v1623218255065!5m2!1szh-TW!2stw"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <div id="carouselInside" class="carousel slide px-5" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-interval="200">
+                                <div>
+                                    <img src="img/coffee (3).jpg" alt="">
+                                    <span>手沖咖啡</span>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-interval="200">
+                                <div>
+                                    <img src="img/coffee (2).jpg" alt="">
+                                    <span>精品咖啡</span>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-interval="200">
+                                <div>
+                                    <img src="img/coffee (1).jpg" alt="">
+                                    <span>濾掛選購</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselInside" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselInside" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <section id="book">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <h3 class="text-center m-4">書本借閱/選購</h3>
+                        <article>
+                            <p>我們同時經營咖啡和文學。</p>
+                            <p>我們擁有大量的書區供你閱覽，二手書經過我們精心挑選和排列，充滿各式文學經典。</p>
+                            <p>此外，若有喜歡的書可以直接向我們購買；也歡迎提供你的二手書給我們收購。</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container" id="store-map">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="text-center m-4">聯絡雛蛙</h3>
+                        <div id="map-responsive">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.952060337449!2d121.98943571495788!3d25.00174488398754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDAwJzA2LjMiTiAxMjHCsDU5JzI5LjkiRQ!5e0!3m2!1szh-TW!2stw!4v1623218255065!5m2!1szh-TW!2stw"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
     </footer>
 </body>
-
 <script>
-    let headNavbar = document.querySelector('#head-navbar')
-    let footerDiv = document.querySelector('footer')
-    headerContain(headNavbar)
-    footerContain(footerDiv)
-</script>
-<script>
-    let productContainer = document.querySelector('.product-container')
-</script>
-<script>
-    feather.replace()
-
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
+    init()
 </script>
 
 </html>

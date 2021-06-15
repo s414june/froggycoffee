@@ -54,6 +54,34 @@
             "title": "【cama】百蜜花園咖啡豆 /227g",
             "img": "product-bean (2).jpg",
             "price": "420"
+        },
+        {
+            "filetype": "book",
+            "typename": "二手書本",
+            "title": "【麥田】轉瞬為風 /十週年紀念版",
+            "img": "product-book (1).jpg",
+            "price": "378"
+        },
+        {
+            "filetype": "book",
+            "typename": "二手書本",
+            "title": "【麥田】動物農莊 /台灣唯一正式授權中譯版",
+            "img": "product-book (2).jpg",
+            "price": "174"
+        },
+        {
+            "filetype": "book",
+            "typename": "二手書本",
+            "title": "【麥田】老人與海 /精裝版",
+            "img": "product-book (3).jpg",
+            "price": "225"
+        },
+        {
+            "filetype": "book",
+            "typename": "二手書本",
+            "title": "【麥田】鼠疫",
+            "img": "product-book (4).jpg",
+            "price": "237"
         }
     ]
 

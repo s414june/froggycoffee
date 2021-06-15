@@ -29,11 +29,17 @@ function headerContain(headNavbar) {
                                     <li><a class="dropdown-item" id="allproduct" onclick="filterAndLoader('all')">所有商品</a></li>
                                     <li><a class="dropdown-item" id="dripbag" onclick="filterAndLoader('dripbag')">濾掛式咖啡</a></li>
                                     <li><a class="dropdown-item" id="bean" onclick="filterAndLoader('bean')">精選咖啡豆</a></li>
-                                    <li><a class="dropdown-item" id="allproduct" onclick="filterAndLoader('all')">二手書本</a></li>
+                                    <li><a class="dropdown-item" id="allproduct" onclick="filterAndLoader('book')">二手書本</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item mx-2">
                                 <a class="nav-link" href="index.html#store-map">聯絡雛蛙</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link text-black cart-place" href="cart.html">
+                                    購物車
+                                    <span class="cart-quantity">0</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -41,6 +47,8 @@ function headerContain(headNavbar) {
             </nav>
     `
     headNavbar.appendChild(headerContainer)
+    let cartQuantity = document.querySelector('.cart-quantity')
+    updateCartQuantity(cartQuantity)
 }
 
 function footerContain(footerDiv) {
