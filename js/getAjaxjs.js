@@ -1,4 +1,4 @@
-function getAjax(cartLsit, Httpurl, callbackFn) {
+function getAjax(Httpurl, callbackFn) {
     let xhr = new XMLHttpRequest()
     xhr.open('GET', Httpurl)
     xhr.send()
