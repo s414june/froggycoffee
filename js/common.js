@@ -1,3 +1,5 @@
+let cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
+
 function headerContain(headNavbar) {
     let headerContainer = document.createElement('div')
     headerContainer.className = "container"
@@ -26,17 +28,17 @@ function headerContain(headNavbar) {
                                     線上選購
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" id="allproduct" onclick="filterAndLoader('all')">所有商品</a></li>
-                                    <li><a class="dropdown-item" id="dripbag" onclick="filterAndLoader('dripbag')">濾掛式咖啡</a></li>
-                                    <li><a class="dropdown-item" id="bean" onclick="filterAndLoader('bean')">精選咖啡豆</a></li>
-                                    <li><a class="dropdown-item" id="allproduct" onclick="filterAndLoader('book')">二手書本</a></li>
+                                    <li><a class="dropdown-item" onclick="filterAndLoader('all')">所有商品</a></li>
+                                    <li><a class="dropdown-item" onclick="filterAndLoader('dripbag')">濾掛式咖啡</a></li>
+                                    <li><a class="dropdown-item" onclick="filterAndLoader('bean')">精選咖啡豆</a></li>
+                                    <li><a class="dropdown-item" onclick="filterAndLoader('book')">二手書本</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item mx-2">
                                 <a class="nav-link" href="index.html#store-map">聯絡雛蛙</a>
                             </li>
                             <li class="nav-item mx-2">
-                                <a class="nav-link text-black cart-place" href="cart.html">
+                                <a class="nav-link text-black cart-name-place" href="cart.html">
                                     購物車
                                     <span class="cart-quantity">0</span>
                                 </a>
@@ -48,6 +50,8 @@ function headerContain(headNavbar) {
     `
     headNavbar.appendChild(headerContainer)
     let cartQuantity = document.querySelector('.cart-quantity')
+    let cartQuantityInnerText = 0
+    localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))
     updateCartQuantity(cartQuantity)
 }
 
@@ -57,13 +61,13 @@ function footerContain(footerDiv) {
         <div class="row">
         <div class="col-12 contact-info">
                 <p class="px-4">
-                    <span class="px-2"><i data-feather="mail"></i></span>s414june@gmail.com
+                    <span class="px-2"><i class="fas fa-envelope"></i></span>s414june@gmail.com
                 </p>
                 <p class="px-4">
-                    <span class="px-2"><i data-feather="phone"></i></span>0900-000-000
+                    <span class="px-2"><i class="fas fa-phone-alt"></i></span>0900-000-000
                 </p>
                 <p class="px-4">
-                    <span class="px-2"><i data-feather="map-pin"></i></span>228新北市貢寮區福連里
+                    <span class="px-2"><i class="fas fa-map-marker-alt"></i></span>228新北市貢寮區福連里
                 </p>
             </div>
         </div>
@@ -73,10 +77,18 @@ function footerContain(footerDiv) {
             </div>
             <div class="col-12">
             <a href="#" class="text-black-50 quote-info" data-bs-toggle="tooltip" title="您將會看到著作權引用相關資訊，以及此網站的製作來由" style="text-decoration:none;">
-                <small><span class="px-1"><i data-feather="info"></i></span>更多資訊
+                <small><span class="px-1"><i class="fas fa-question-circle"></i></span>更多資訊
                 </small>
             </a>
         </div>
     </div>
     `
+}
+
+function updateCartQuantity(cartQuantity) {
+    let cartLsitQObj = cartLsit.filter(item => item.quantity > 0)
+    let cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
+    cartQuantityInnerText = cartLsitQObj.length
+    cartQuantity.innerText = String(cartQuantityInnerText)
+    localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))
 }

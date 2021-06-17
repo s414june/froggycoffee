@@ -13,9 +13,6 @@
         display: flex;
         justify-content: center;
     }
-    #cart .cart-title {
-        display: flex;
-    }
 }
 
 @media screen and (min-width:992px) {
@@ -38,9 +35,9 @@
     header .cart-quantity::after {
         content: "";
     }
-    #cart .cart-place {
+    /* #cart .cart-place {
         display: flex;
-    }
+    } */
 }
 
 @media screen and (max-width:991.9px) {
@@ -60,9 +57,9 @@
         --bgImgHeight: 100vh;
         --carouselFontSize: 3rem;
     }
-    #cart .cart-title {
+    /* #cart .cart-title {
         text-align: center;
-    }
+    } */
 }
 
 h1,
@@ -108,8 +105,13 @@ header .dropdown-item:active {
     background-color: var(--info-blue);
 }
 
-header .cart-place {
+header .cart-name-place {
     position: relative;
+}
+
+footer .contact-info i {
+    font-size: 1.2rem;
+    padding-right: 3px;
 }
 
 
@@ -223,7 +225,7 @@ footer .quote-info {
     right: 10px;
 }
 
-footer .quote-info svg {
+footer .quote-info i {
     width: .9rem;
 }
 
@@ -240,6 +242,25 @@ footer .quote-info svg {
     border-bottom: 1px solid rgba(100, 100, 100);
 }
 
+#cart .cart-title {
+    text-align: center;
+}
+
+#cart .cart-inside {
+    padding: 1rem;
+}
+
+#cart .cart-inside .fa-trash-alt {
+    font-size: 1.7rem;
+    color: rgba(100, 100, 100);
+    padding-left: 15px;
+    bottom: 0
+}
+
+#cart .cart-inside .item-img {
+    width: 10rem;
+}
+
 #cart .change-quantity-place {
     display: flex;
     align-items: center;
@@ -247,24 +268,22 @@ footer .quote-info svg {
 }
 
 #cart .cart-quantity-input {
-    width: 50px;
+    width: 3.5rem;
     border: solid rgba(0, 0, 0, 0.5) 1px;
     border-radius: 5px;
     text-align: center;
-    font-size: .9rem;
-    /*配合icon，視覺微調*/
-    margin-top: .3rem;
 }
 
-#cart .trash-icon {
+
+/* #cart .trash-icon {
     color: rgba(100, 100, 100);
     padding-left: 7px;
-}
+} */
 
 #cart .cart-total {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 
 #cart .cart-total .btn {
@@ -272,7 +291,7 @@ footer .quote-info svg {
     margin-left: 50px;
     background-color: var(--info-blue);
     color: #fff;
-    filter: grayscale(30%);
+    filter: grayscale(15%);
 }
 
 #cart .cart-total .btn:hover {

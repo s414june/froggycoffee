@@ -7,9 +7,7 @@ function init() {
 }
 
 function extensionFn() {
-    //icon
-    feather.replace()
-        //tooltip
+    //tooltip
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
