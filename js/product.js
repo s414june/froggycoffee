@@ -118,5 +118,5 @@ function addCartLsit(e) {
     localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
     let cartQuantity = document.querySelector('.cart-quantity')
     alert('商品加入購物車')
-    if (cartLsit != [] || null) updateCartQuantity(cartQuantity)
+    if (cartLsit != [] || cartLsit != null) updateCartQuantity(cartQuantity)
 }
