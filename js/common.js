@@ -1,4 +1,4 @@
-let cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
+let cartLsit = []
 
 function headerContain(headNavbar) {
     let headerContainer = document.createElement('div')
