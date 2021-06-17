@@ -50,8 +50,8 @@ function headerContain(headNavbar) {
             </nav>
     `
     headNavbar.appendChild(headerContainer)
-    let cartQuantity = document.querySelector('.cart-quantity')
-    if (cartLsit != [] || cartLsit != null) updateCartQuantity(cartQuantity)
+        // let cartQuantity = document.querySelector('.cart-quantity')
+        // if (cartLsit != [] || cartLsit != null) updateCartQuantity(cartQuantity)
 
 }
 
