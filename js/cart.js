@@ -82,6 +82,5 @@ function removeCartItem(e) {
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
         initCart()
         let cartQuantity = document.querySelector('.cart-quantity')
-        updateCartQuantity(cartQuantity)
     }
 }
