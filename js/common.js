@@ -50,8 +50,8 @@ function headerContain(headNavbar) {
             </nav>
     `
     headNavbar.appendChild(headerContainer)
-        // let cartQuantity = document.querySelector('.cart-quantity')
-        // if (cartLsit != [] || cartLsit != null) updateCartQuantity(cartQuantity)
+    let cartQuantity = document.querySelector('.cart-quantity')
+    updateCartQuantity(cartQuantity)
 
 }
 
@@ -86,12 +86,13 @@ function footerContain(footerDiv) {
 }
 
 function updateCartQuantity(cartQuantity) {
-    cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
-    let cartLsitQObj = cartLsit.filter(item => item.quantity > 0)
-    cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
-    console.log(cartQuantityInnerText)
-    cartQuantityInnerText = cartLsitQObj.length
-    console.log(cartQuantityInnerText)
-    localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))
-    cartQuantity.innerText = String(cartQuantityInnerText)
+    if (cartLsit != [] || cartLsit != null) {
+        let cartLsitQObj = cartLsit.filter(item => item.quantity > 0)
+        cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
+        console.log(cartQuantityInnerText)
+        cartQuantityInnerText = cartLsitQObj.length
+        console.log(cartQuantityInnerText)
+        localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))
+        cartQuantity.innerText = String(cartQuantityInnerText)
+    }
 }
