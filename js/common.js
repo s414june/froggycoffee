@@ -86,9 +86,8 @@ function footerContain(footerDiv) {
 }
 
 function updateCartQuantity(cartQuantity) {
+    cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
     let cartLsitQObj = cartLsit.filter(item => item.quantity > 0)
-    let cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
-    cartQuantityInnerText = cartLsitQObj.length
-    cartQuantity.innerText = String(cartQuantityInnerText)
-    localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))
+    cartQuantity.innerText = String(cartLsitQObj)
+    localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartLsitQObj))
 }
