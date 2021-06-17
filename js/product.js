@@ -6,10 +6,8 @@ function initProductPage() {
     productType = sessionStorage.getItem('productType')
     filterAndLoader(productType)
 
-
     let rootPath = location.pathname.replace(/product.html/, "")
     getAjax((rootPath + "json/product.json"), (xhr) => {
-        let cartLsit = []
         let json2objProduct = JSON.parse(xhr.response).products
         for (let i = 0; i < json2objProduct.length; i++) {
             cartLsit.push({ 'title': json2objProduct[i].title, 'quantity': 0 })
