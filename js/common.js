@@ -51,8 +51,7 @@ function headerContain(headNavbar) {
     `
     headNavbar.appendChild(headerContainer)
     let cartQuantity = document.querySelector('.cart-quantity')
-        // cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
-    updateCartQuantity(cartQuantity)
+    if (cartLsit != []) updateCartQuantity(cartQuantity)
 
 }
 
