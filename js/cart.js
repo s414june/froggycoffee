@@ -4,7 +4,7 @@ function initCart() {
     let cartObj = []
     if (cartPlace.innerText != "") cartPlace.innerText = ""
     let rootPath = location.pathname.replace(/cart.html/, "")
-    getAjax((rootPath + "json/product.json"), (xhr) => {
+    getAjax(cartLsit, (rootPath + "json/product.json"), (xhr) => {
         let json2objProduct = JSON.parse(xhr.response).products
         for (let i = 0; i < json2objProduct.length; i++) {
             for (let j = 0; j < cartLsitQObj.length; j++) {

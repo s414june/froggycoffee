@@ -7,11 +7,11 @@ function initProductPage() {
     filterAndLoader(productType)
 
     let rootPath = location.pathname.replace(/product.html/, "")
-    getAjax((rootPath + "json/product.json"), (xhr) => {
-        console.log(cartLsit)
+    getAjax(cartLsit, (rootPath + "json/product.json"), (xhr) => {
         let json2objProduct = JSON.parse(xhr.response).products
+        cartLsit = []
         for (let i = 0; i < json2objProduct.length; i++) {
-            cartLsit = cartLsit.push({ 'title': json2objProduct[i].title, 'quantity': 0 })
+            cartLsit.push({ 'title': json2objProduct[i].title, 'quantity': 0 })
         }
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
     })
@@ -36,7 +36,7 @@ function filterAndLoader(filtername) {
     }
 
     let rootPath = location.pathname.replace(/product.html/, "")
-    getAjax((rootPath + "json/product.json"), (xhr) => {
+    getAjax(cartLsit, (rootPath + "json/product.json"), (xhr) => {
             let filterObj = []
             let json2objProduct = JSON.parse(xhr.response).products
             json2objProduct.forEach(item => {
@@ -111,6 +111,7 @@ function addCartLsit(e) {
     let cartItemTitle = cartItemDiv.querySelector('.card-title').innerText
 
     cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
+    console.log(cartLsit)
     cartLsit.forEach(item => {
         if (item.title == cartItemTitle) {
             item.quantity++
