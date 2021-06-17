@@ -89,9 +89,7 @@ function updateCartQuantity(cartQuantity) {
     if (cartLsit != [] || cartLsit != null) {
         let cartLsitQObj = cartLsit.filter(item => item.quantity > 0)
         cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
-        console.log(cartQuantityInnerText)
         cartQuantityInnerText = cartLsitQObj.length
-        console.log(cartQuantityInnerText)
         localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))
         cartQuantity.innerText = String(cartQuantityInnerText)
     }
