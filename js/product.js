@@ -24,8 +24,8 @@ function filterAndLoader(filtername) {
         return
     }
 
-    let rootPath = location.pathname.replace(/product.html/, "")
-    getAjax((rootPath + "json/product.json"), (xhr) => {
+    let rootPath = location.origin
+    getAjax((rootPath + "/json/product.json"), (xhr) => {
             let filterObj = []
             let json2objProduct = JSON.parse(xhr.response).products
             json2objProduct.forEach(item => {

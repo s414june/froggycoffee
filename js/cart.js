@@ -7,8 +7,8 @@ function initCart() {
         // cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
 
     if (cartPlace.innerText != "") cartPlace.innerText = ""
-    let rootPath = location.pathname.replace(/cart.html/, "")
-    getAjax((rootPath + "json/product.json"), (xhr) => {
+    let rootPath = location.origin
+    getAjax((rootPath + "/json/product.json"), (xhr) => {
         let json2objProduct = JSON.parse(xhr.response).products
         cartObj = []
         for (let i = 0; i < json2objProduct.length; i++) {
