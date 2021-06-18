@@ -65,7 +65,7 @@ function showProductFn(obj) {
                         <div>
                             <p class="card-text card-price" style="text-align:right">NT$${item.price}</p>
                         </div>
-                        <a class="btn btn-info text-white m-2 add2cart-btn" style="width:6.7rem">加入購物車</a>
+                        <a class="btn btn-info text-white m-2 add2cart-btn" style="width:6.7rem" data-bs-toggle="modal" data-bs-target="#add2cartModal">加入購物車</a>
                     </div>
                 </div>
             </div>
@@ -95,12 +95,14 @@ function addCartLsit(e) {
     }
     for (let i = 0; i < cartLsit.length; i++) {
         if (cartLsit[i] == cartItemTitle) {
-            alert('此商品已加入購物車。您可以在購物車清單中更改數量。')
+            add2cartModalContent.innerText = '此商品已加入購物車。您可以在購物車清單中更改數量。'
+                // alert('此商品已加入購物車。您可以在購物車清單中更改數量。')
             return
         }
     }
     cartLsit.push(cartItemTitle)
-    alert('商品加入購物車囉！')
+    add2cartModalContent.innerText = '商品加入購物車囉！'
+        // alert('商品加入購物車囉！')
 
     localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
     updateCartQuantity()

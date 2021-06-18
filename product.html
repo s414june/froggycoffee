@@ -70,6 +70,20 @@
         </section>
     </main>
 
+    <div class="modal fade" id="add2cartModal" tabindex="-1" aria-labelledby="add2cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <br>
+                    <p>商品加入購物車囉！</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info text-white" data-bs-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer>
     </footer>
 </body>
@@ -80,6 +94,7 @@
     let productContainer = document.querySelector('#product-container')
     let productQuantity = document.querySelector('.product-quantity')
     let searchInput = document.querySelector('.form-control')
+    let add2cartModalContent = document.querySelector('#add2cartModal p')
     initProductPage()
     searchFn()
 </script>

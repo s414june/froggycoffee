@@ -23,7 +23,7 @@ function initCart() {
         showCartFn(cartObj)
     })
 
-    let purchaseBtn = document.querySelector('#cart .purchase-btn')
+    // let purchaseBtn = document.querySelector('#cart .purchase-btn')
     purchaseBtn.addEventListener('click', purchaseFn)
 }
 
@@ -41,7 +41,7 @@ function showCartFn(cartObj) {
                 <p class="item-price">NT$${item.price}</p>
                 <div class="change-quantity-place">
                     <input type="number" value="1" class="cart-quantity-input">
-                    <span>
+                    <span data-bs-toggle="modal" data-bs-target="#purchaseModal">
                     <i class="far fa-trash-alt"></i>
                         </i>
                     </span>
@@ -67,7 +67,6 @@ function updateTotal() {
         quantityInput.addEventListener('change', quantityChange)
         total += price * quantityInput.value
     })
-    let totalContainer = document.querySelector('#cart .total-container')
     totalContainer.innerText = total
 }
 
@@ -80,8 +79,12 @@ function quantityChange(e) {
 }
 
 function removeCartItem(e) {
-    let r = confirm('你確定要刪除商品嗎')
-    if (r) {
+    btnOk.style.display = 'inline'
+    btnOk.innerText = '確定'
+    btnCancel.innerText = '取消'
+    purchaseModalContent.innerText = '你確定要刪除商品嗎？QQ'
+        // let r = confirm('你確定要刪除商品嗎')
+    btnOk.addEventListener('click', () => {
         let RemoveBtn = e.target
         let itemTitle = RemoveBtn.parentElement.parentElement.parentElement.querySelector('.item-title').innerText
         cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
@@ -89,17 +92,26 @@ function removeCartItem(e) {
             if (item == itemTitle) cartLsit.splice(i, 1)
         })
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
+
+        btnOk.style.display = 'none'
+        btnCancel.innerText = '關閉'
+        purchaseModalContent.innerText = '已刪除商品'
+        cartLsit = []
+        localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
+
         initCart()
-    }
+    })
 }
 
 function purchaseFn() {
-    let totalContainer = document.querySelector('#cart .total-container')
-    let r = confirm('您購買的商品總共是' + totalContainer.innerText + '元~確定要購買嗎？')
-    if (r) {
-        alert('感謝您的購買')
+    btnOk.style.display = 'inline'
+    purchaseModalContent.innerText = '您購買的商品總共是' + totalContainer.innerText + '元~確定要購買嗎？'
+    btnOk.addEventListener('click', () => {
+        btnOk.style.display = 'none'
+        btnCancel.innerText = '關閉'
+        purchaseModalContent.innerText = '感謝您的購買'
         cartLsit = []
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
         initCart()
-    }
+    })
 }
