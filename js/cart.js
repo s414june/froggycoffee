@@ -35,6 +35,7 @@ function showCartFn(cartObj) {
                 <img src="img/${item.filetype}/${item.img}" alt="${item.title}" class="item-img">
             </div>
             <div>
+                <br>  
                 <p class="item-title">${item.title}</p>
                 <p class="item-price">NT$${item.price}</p>
                 <div class="change-quantity-place">
