@@ -96,14 +96,11 @@ function addCartLsit(e) {
     for (let i = 0; i < cartLsit.length; i++) {
         if (cartLsit[i] == cartItemTitle) {
             add2cartModalContent.innerText = '此商品已加入購物車。您可以在購物車清單中更改數量。'
-                // alert('此商品已加入購物車。您可以在購物車清單中更改數量。')
             return
         }
     }
     cartLsit.push(cartItemTitle)
     add2cartModalContent.innerText = '商品加入購物車囉！'
-        // alert('商品加入購物車囉！')
-
     localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
     updateCartQuantity()
 }
