@@ -7,10 +7,14 @@ function initCart() {
         // cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
 
     if (cartPlace.innerText != "") cartPlace.innerText = ""
-    let rootPath = location.origin
-    getAjax((rootPath + "/json/product.json"), (xhr) => {
+        // let rootPath = location.origin
+    getAjax(("./json/product.json"), (xhr) => {
         let json2objProduct = JSON.parse(xhr.response).products
         cartObj = []
+        if (cartLsit == [] || cartLsit == null) {
+            cartPlace.innerHTML = "<br><br>您的購物車是空的。"
+            return
+        }
         for (let i = 0; i < json2objProduct.length; i++) {
             for (let j = 0; j < cartLsit.length; j++) {
                 if (json2objProduct[i].title == cartLsit[j]) {
