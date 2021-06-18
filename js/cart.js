@@ -1,21 +1,28 @@
+let cartObj = []
+
 function initCart() {
+    cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
+    updateCartQuantity()
     cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
-    let cartLsitQObj = cartLsit.filter(item => item.quantity > 0)
-    let cartObj = []
+        // cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
+
     if (cartPlace.innerText != "") cartPlace.innerText = ""
     let rootPath = location.pathname.replace(/cart.html/, "")
-    getAjax(cartLsit, (rootPath + "json/product.json"), (xhr) => {
+    getAjax((rootPath + "json/product.json"), (xhr) => {
         let json2objProduct = JSON.parse(xhr.response).products
+        cartObj = []
         for (let i = 0; i < json2objProduct.length; i++) {
-            for (let j = 0; j < cartLsitQObj.length; j++) {
-                if (cartLsitQObj[j].title == json2objProduct[i].title) {
+            for (let j = 0; j < cartLsit.length; j++) {
+                if (json2objProduct[i].title == cartLsit[j]) {
                     cartObj.push(json2objProduct[i])
-                    cartObj[j].quantity = cartLsitQObj[j].quantity
                 }
             }
         }
         showCartFn(cartObj)
     })
+
+    let purchaseBtn = document.querySelector('#cart .purchase-btn')
+    purchaseBtn.addEventListener('click', purchaseFn)
 }
 
 function showCartFn(cartObj) {
@@ -31,7 +38,7 @@ function showCartFn(cartObj) {
                 <p class="item-title">${item.title}</p>
                 <p class="item-price">NT$${item.price}</p>
                 <div class="change-quantity-place">
-                    <input type="number" value=${item.quantity} class="cart-quantity-input">
+                    <input type="number" value="1" class="cart-quantity-input">
                     <span>
                     <i class="far fa-trash-alt"></i>
                         </i>
@@ -58,7 +65,7 @@ function updateTotal() {
         quantityInput.addEventListener('change', quantityChange)
         total += price * quantityInput.value
     })
-    totalContainer = document.querySelector('#cart .total-container')
+    let totalContainer = document.querySelector('#cart .total-container')
     totalContainer.innerText = total
 }
 
@@ -77,8 +84,20 @@ function removeCartItem(e) {
         let itemTitle = RemoveBtn.parentElement.parentElement.parentElement.querySelector('.item-title').innerText
         cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
         cartLsit.forEach((item, i) => {
-            if (item.title == itemTitle) cartLsit.splice(i, 1)
+            if (item == itemTitle) cartLsit.splice(i, 1)
         })
+        localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
+        console.log(cartLsit)
+        initCart()
+    }
+}
+
+function purchaseFn() {
+    let totalContainer = document.querySelector('#cart .total-container')
+    let r = confirm('您購買的商品總共是' + totalContainer.innerText + '元~確定要購買嗎？')
+    if (r) {
+        alert('感謝您的購買')
+        cartLsit = []
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
         initCart()
     }

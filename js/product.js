@@ -5,17 +5,6 @@ function initProductPage() {
     }
     productType = sessionStorage.getItem('productType')
     filterAndLoader(productType)
-
-    let rootPath = location.pathname.replace(/product.html/, "")
-    getAjax(cartLsit, (rootPath + "json/product.json"), (xhr) => {
-        let json2objProduct = JSON.parse(xhr.response).products
-        cartLsit = []
-        for (let i = 0; i < json2objProduct.length; i++) {
-            cartLsit.push({ 'title': json2objProduct[i].title, 'quantity': 0 })
-        }
-        localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
-    })
-    cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
 }
 
 function searchFn() {
@@ -36,13 +25,16 @@ function filterAndLoader(filtername) {
     }
 
     let rootPath = location.pathname.replace(/product.html/, "")
-    getAjax(cartLsit, (rootPath + "json/product.json"), (xhr) => {
+    getAjax((rootPath + "json/product.json"), (xhr) => {
             let filterObj = []
             let json2objProduct = JSON.parse(xhr.response).products
             json2objProduct.forEach(item => {
                     //分類商品
-                    if (item.filetype == filtername) filterObj.push(item)
-                        //搜尋商品
+                    if (item.filetype == filtername) {
+                        filterObj.push(item)
+                        changeVerticalNavStyle(filtername)
+                    }
+                    //搜尋商品
                     if (searchInput.value != "") {
                         let regName = new RegExp(filtername, 'i')
                         let searchReg = item.title.search(regName)
@@ -52,11 +44,11 @@ function filterAndLoader(filtername) {
                 //不分類
             if (filtername == "all") {
                 filterObj = json2objProduct
+                changeVerticalNavStyle(filtername)
             }
             showProductFn(filterObj)
         })
         //側邊欄橫條樣式
-    changeVerticalNavStyle(filtername)
 }
 
 function showProductFn(obj) {
@@ -94,6 +86,23 @@ function listenAdd2CartBtn() {
     })
 }
 
+function addCartLsit(e) {
+    let addCartBtn = e.target
+    let cartItemDiv = addCartBtn.parentElement.parentElement.parentElement
+    let cartItemTitle = cartItemDiv.querySelector('.card-title').innerText
+    for (let i = 0; i < cartLsit.length; i++) {
+        if (cartLsit[i] == cartItemTitle) {
+            alert('此商品已加入購物車。您可以在購物車清單中更改數量。')
+            return
+        }
+    }
+    cartLsit.push(cartItemTitle)
+    alert('商品加入購物車囉！')
+
+    localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
+    updateCartQuantity()
+}
+
 function changeVerticalNavStyle(filtername) {
     let verticalNavAll = document.querySelectorAll('.vertical-nav a')
     verticalNavAll.forEach(item => {
@@ -103,22 +112,4 @@ function changeVerticalNavStyle(filtername) {
         let verticalNavA = document.querySelector('.' + filtername + '-product')
         verticalNavA.classList.add("border-left-color")
     }
-}
-
-function addCartLsit(e) {
-    let addCartBtn = e.target
-    let cartItemDiv = addCartBtn.parentElement.parentElement.parentElement
-    let cartItemTitle = cartItemDiv.querySelector('.card-title').innerText
-
-    cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
-    console.log(cartLsit)
-    cartLsit.forEach(item => {
-        if (item.title == cartItemTitle) {
-            item.quantity++
-        }
-    })
-    localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
-    let cartQuantity = document.querySelector('.cart-quantity')
-    alert('商品加入購物車')
-    updateCartQuantity(cartQuantity)
 }

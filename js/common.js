@@ -1,5 +1,7 @@
 let cartLsit = []
 let cartQuantityInnerText = 0
+cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
+cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
 
 function headerContain(headNavbar) {
     let headerContainer = document.createElement('div')
@@ -50,9 +52,7 @@ function headerContain(headNavbar) {
             </nav>
     `
     headNavbar.appendChild(headerContainer)
-    let cartQuantity = document.querySelector('.cart-quantity')
-    updateCartQuantity(cartQuantity)
-
+    updateCartQuantity()
 }
 
 function footerContain(footerDiv) {
@@ -85,11 +85,11 @@ function footerContain(footerDiv) {
     `
 }
 
-function updateCartQuantity(cartQuantity) {
+function updateCartQuantity() {
+    let cartQuantity = document.querySelector('.cart-quantity')
     if (cartLsit != [] || cartLsit != null) {
-        let cartLsitQObj = cartLsit.filter(item => item.quantity > 0)
         cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
-        cartQuantityInnerText = cartLsitQObj.length
+        cartQuantityInnerText = cartLsit.length
         localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))
         cartQuantity.innerText = String(cartQuantityInnerText)
     }
