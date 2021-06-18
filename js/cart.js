@@ -22,8 +22,6 @@ function initCart() {
         }
         showCartFn(cartObj)
     })
-
-    // let purchaseBtn = document.querySelector('#cart .purchase-btn')
     purchaseBtn.addEventListener('click', purchaseFn)
 }
 
@@ -83,7 +81,6 @@ function removeCartItem(e) {
     btnOk.innerText = '確定'
     btnCancel.innerText = '取消'
     purchaseModalContent.innerText = '你確定要刪除商品嗎？QQ'
-        // let r = confirm('你確定要刪除商品嗎')
     btnOk.addEventListener('click', () => {
         let RemoveBtn = e.target
         let itemTitle = RemoveBtn.parentElement.parentElement.parentElement.querySelector('.item-title').innerText
@@ -96,7 +93,6 @@ function removeCartItem(e) {
         btnOk.style.display = 'none'
         btnCancel.innerText = '關閉'
         purchaseModalContent.innerText = '已刪除商品'
-        cartLsit = []
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
 
         initCart()
