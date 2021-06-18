@@ -1,3 +1,5 @@
+"use strict";
+
 function init() {
     let headNavbar = document.querySelector('#head-navbar')
     let footerDiv = document.querySelector('footer')

@@ -4,10 +4,8 @@ function initCart() {
     cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
     updateCartQuantity()
     cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
-        // cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
 
     if (cartPlace.innerText != "") cartPlace.innerText = ""
-        // let rootPath = location.origin
     getAjax(("./json/product.json"), (xhr) => {
         let json2objProduct = JSON.parse(xhr.response).products
         cartObj = []
@@ -91,7 +89,6 @@ function removeCartItem(e) {
             if (item == itemTitle) cartLsit.splice(i, 1)
         })
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
-        console.log(cartLsit)
         initCart()
     }
 }

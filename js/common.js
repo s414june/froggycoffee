@@ -88,7 +88,6 @@ function footerContain(footerDiv) {
 function updateCartQuantity() {
     if (cartLsit == [] || cartLsit == null) return
     let cartQuantity = document.querySelector('.cart-quantity')
-    console.log(cartLsit)
     cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
     cartQuantityInnerText = cartLsit.length
     localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))

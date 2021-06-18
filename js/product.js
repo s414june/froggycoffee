@@ -90,6 +90,9 @@ function addCartLsit(e) {
     let addCartBtn = e.target
     let cartItemDiv = addCartBtn.parentElement.parentElement.parentElement
     let cartItemTitle = cartItemDiv.querySelector('.card-title').innerText
+    if (cartLsit == null) {
+        cartLsit = []
+    }
     for (let i = 0; i < cartLsit.length; i++) {
         if (cartLsit[i] == cartItemTitle) {
             alert('此商品已加入購物車。您可以在購物車清單中更改數量。')
