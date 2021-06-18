@@ -86,11 +86,11 @@ function footerContain(footerDiv) {
 }
 
 function updateCartQuantity() {
+    if (cartLsit == [] || cartLsit == null) return
     let cartQuantity = document.querySelector('.cart-quantity')
-    if (cartLsit != [] || cartLsit != null) {
-        cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
-        cartQuantityInnerText = cartLsit.length
-        localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))
-        cartQuantity.innerText = String(cartQuantityInnerText)
-    }
+    console.log(cartLsit)
+    cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
+    cartQuantityInnerText = cartLsit.length
+    localStorage.setItem('cartQuantityInnerText', JSON.stringify(cartQuantityInnerText))
+    cartQuantity.innerText = String(cartQuantityInnerText)
 }
