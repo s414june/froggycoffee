@@ -57,7 +57,15 @@
             </div>
         </div>
     </div>
-    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-end w-100" style="position:fixed" id="remove-alert">
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center w-100" style="position:fixed;z-index:-10;" id="purchase-alert">
+        <div class="toast align-items-center text-secondary bg-white border-0 m-5" style="width:11rem;font-size: 1rem;" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+            <div class="d-flex">
+                <div class="toast-body" style="margin:0 auto">
+                    <p style="margin:0 auto">感謝您的購買</p>
+                </div>
+                <button type="button" class="btn-close btn-close-secondary me-2 m-auto" style="font-size:.7rem;" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -68,12 +76,11 @@
     let cartPlace = document.querySelector('.cart-place')
     let totalContainer = document.querySelector('#cart .total-container')
     let purchaseBtn = document.querySelector('#cart .purchase-btn')
-
+        //model
     let purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'))
     let purchaseModalContent = document.querySelector('#purchaseModal p')
     let btnOk = document.querySelector('#purchaseModal .btn-info')
     let btnCancel = document.querySelector('#purchaseModal .btn-secondary')
-
     initCart()
 </script>
 

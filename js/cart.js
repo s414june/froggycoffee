@@ -1,5 +1,11 @@
 "use strict";
 let cartObj = []
+    //toast
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function(toastEl) {
+    return new bootstrap.Toast(toastEl)
+})
+
 
 function initCart() {
     cartQuantityInnerText = JSON.parse(localStorage.getItem('cartQuantityInnerText'))
@@ -92,7 +98,6 @@ function removeCartItem(e) {
         cartLsit.forEach((item, i) => {
             if (item == itemTitle) cartLsit.splice(i, 1)
         })
-        showRemoveAlert()
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
         initCart()
     })
@@ -102,31 +107,21 @@ function purchaseFn() {
     btnOk.style.display = 'inline'
     purchaseModalContent.innerText = '您購買的商品總共是' + totalContainer.innerText + '元~確定要購買嗎？'
     btnOk.addEventListener('click', () => {
-        btnOk.style.display = 'none'
-        btnCancel.innerText = '關閉'
-        purchaseModalContent.innerText = '感謝您的購買'
+        purchaseModal.hide()
+        showPurchaseAlert()
         cartLsit = []
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
         initCart()
     })
 }
 
-function showRemoveAlert() {
-    let removeAlert = document.querySelector('#remove-alert')
-    removeAlert.innerHTML = `
-    <div class="toast align-items-center text-secondary bg-white border-0 m-4" style="width:13rem;font-size: 1rem;" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
-            <div class="d-flex">
-                <div class="toast-body">
-                    <p>已刪除商品</p>
-                </div>
-                <button type="button" class="btn-close btn-close-secondary me-2 m-auto" style="font-size:.7rem;" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-        </div>
-    `
-        //toast
+function showPurchaseAlert() {
+    //toast
     var toastElList = [].slice.call(document.querySelectorAll('.toast'))
     var toastList = toastElList.map(function(toastEl) {
         return new bootstrap.Toast(toastEl)
     })
+    let purchaseAlert = document.querySelector('#purchase-alert')
+    purchaseAlert.style.zIndex = 10
     toastList[0].show()
 }

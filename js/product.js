@@ -133,7 +133,7 @@ function changeVerticalNavStyle(filtername) {
 function showAddToast(alertContent, widthValue) {
     let toastAlert = document.querySelector('#toast-alert')
     toastAlert.innerHTML = `
-    <div class="toast align-items-center text-secondary bg-white border-0 m-4" style="width:${widthValue};font-size: 1rem;" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="1500">
+    <div class="toast align-items-center text-secondary bg-white border-0 m-5" style="width:${widthValue};font-size: 1rem;" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="1500">
         <div class="d-flex">
             <div class="toast-body">
                 <p>${alertContent}</p>
