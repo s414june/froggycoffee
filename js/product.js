@@ -1,9 +1,19 @@
+"use strict";
+let productType = ""
+productType = sessionStorage.getItem('productType')
+
+//toast
+var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+var toastList = toastElList.map(function(toastEl) {
+    return new bootstrap.Toast(toastEl)
+})
+let add2cartToast = document.querySelector('.toast')
+
 function initProductPage() {
-    let productType = sessionStorage.getItem('productType')
-    if (productType == undefined) {
+    productType = sessionStorage.getItem('productType')
+    if (productType == "") {
         sessionStorage.setItem('productType', 'all')
     }
-    productType = sessionStorage.getItem('productType')
     filterAndLoader(productType)
 }
 
@@ -24,7 +34,6 @@ function filterAndLoader(filtername) {
         return
     }
 
-    // let rootPath = location.origin
     getAjax(("./json/product.json"), (xhr) => {
             let filterObj = []
             let json2objProduct = JSON.parse(xhr.response).products
@@ -65,7 +74,7 @@ function showProductFn(obj) {
                         <div>
                             <p class="card-text card-price" style="text-align:right">NT$${item.price}</p>
                         </div>
-                        <a class="btn btn-info text-white m-2 add2cart-btn" style="width:6.7rem" data-bs-toggle="modal" data-bs-target="#add2cartModal">加入購物車</a>
+                        <a class="btn btn-info text-white m-2 add2cart-btn" style="width:6.7rem">加入購物車</a>
                     </div>
                 </div>
             </div>
@@ -95,12 +104,17 @@ function addCartLsit(e) {
     }
     for (let i = 0; i < cartLsit.length; i++) {
         if (cartLsit[i] == cartItemTitle) {
-            add2cartModalContent.innerText = '此商品已加入購物車。您可以在購物車清單中更改數量。'
+            let itemChoosedAlert = '此商品已加入購物車。<br>您可以在購物車清單中更改數量。'
+            let itemChoosedWidth = '20rem'
+            showAddToast(itemChoosedAlert, itemChoosedWidth)
             return
         }
     }
     cartLsit.push(cartItemTitle)
-    add2cartModalContent.innerText = '商品加入購物車囉！'
+    let itemAddAlert = "商品加入購物車囉！"
+    let itemAddWidth = '13rem'
+    showAddToast(itemAddAlert, itemAddWidth)
+
     localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
     updateCartQuantity()
 }
@@ -114,4 +128,23 @@ function changeVerticalNavStyle(filtername) {
         let verticalNavA = document.querySelector('.' + filtername + '-product')
         verticalNavA.classList.add("border-left-color")
     }
+}
+
+function showAddToast(alertContent, widthValue) {
+    let toastAlert = document.querySelector('#toast-alert')
+    toastAlert.innerHTML = `
+    <div class="toast align-items-center text-secondary bg-white border-0 m-4" style="width:${widthValue};font-size: 1rem;" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="1500">
+        <div class="d-flex">
+            <div class="toast-body">
+                <p>${alertContent}</p>
+            </div>
+            <button type="button" class="btn-close btn-close-secondary me-2 m-auto" style="font-size:.7rem;" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+    `
+    toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    toastList = toastElList.map(function(toastEl) {
+        return new bootstrap.Toast(toastEl)
+    })
+    toastList[0].show()
 }

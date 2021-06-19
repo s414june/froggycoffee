@@ -48,14 +48,16 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <br>
-                    <p>您未購買任何商品</p>
+                    <p>你確定要刪除商品嗎？QQ</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info text-white">購買</button>
+                    <button type="button" class="btn btn-info text-white">確定</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
                 </div>
             </div>
         </div>
+    </div>
+    <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-end w-100" style="position:fixed" id="remove-alert">
     </div>
 
     <footer>
@@ -66,9 +68,12 @@
     let cartPlace = document.querySelector('.cart-place')
     let totalContainer = document.querySelector('#cart .total-container')
     let purchaseBtn = document.querySelector('#cart .purchase-btn')
+
+    let purchaseModal = new bootstrap.Modal(document.getElementById('purchaseModal'))
     let purchaseModalContent = document.querySelector('#purchaseModal p')
     let btnOk = document.querySelector('#purchaseModal .btn-info')
     let btnCancel = document.querySelector('#purchaseModal .btn-secondary')
+
     initCart()
 </script>
 

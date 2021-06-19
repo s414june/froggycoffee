@@ -1,3 +1,4 @@
+"use strict";
 let cartLsit = []
 let cartQuantityInnerText = 0
 cartLsit = JSON.parse(localStorage.getItem('cartLsit'))

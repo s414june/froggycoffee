@@ -1,3 +1,4 @@
+"use strict";
 let cartObj = []
 
 function initCart() {
@@ -26,6 +27,7 @@ function initCart() {
 }
 
 function showCartFn(cartObj) {
+    cartPlace.innerHTML = ""
     if (cartObj.length == 0) cartPlace.innerHTML = "<br><br>您的購物車是空的。"
     cartObj.forEach(item => {
         let cartAll = document.createElement('div')
@@ -83,19 +85,15 @@ function removeCartItem(e) {
     btnCancel.innerText = '取消'
     purchaseModalContent.innerText = '你確定要刪除商品嗎？QQ'
     btnOk.addEventListener('click', () => {
+        purchaseModal.hide()
         let RemoveBtn = e.target
         let itemTitle = RemoveBtn.parentElement.parentElement.parentElement.querySelector('.item-title').innerText
         cartLsit = JSON.parse(localStorage.getItem('cartLsit'))
         cartLsit.forEach((item, i) => {
             if (item == itemTitle) cartLsit.splice(i, 1)
         })
+        showRemoveAlert()
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
-
-        btnOk.style.display = 'none'
-        btnCancel.innerText = '關閉'
-        purchaseModalContent.innerText = '已刪除商品'
-        localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
-
         initCart()
     })
 }
@@ -111,4 +109,24 @@ function purchaseFn() {
         localStorage.setItem('cartLsit', JSON.stringify(cartLsit))
         initCart()
     })
+}
+
+function showRemoveAlert() {
+    let removeAlert = document.querySelector('#remove-alert')
+    removeAlert.innerHTML = `
+    <div class="toast align-items-center text-secondary bg-white border-0 m-4" style="width:13rem;font-size: 1rem;" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+            <div class="d-flex">
+                <div class="toast-body">
+                    <p>已刪除商品</p>
+                </div>
+                <button type="button" class="btn-close btn-close-secondary me-2 m-auto" style="font-size:.7rem;" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    `
+        //toast
+    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    var toastList = toastElList.map(function(toastEl) {
+        return new bootstrap.Toast(toastEl)
+    })
+    toastList[0].show()
 }
